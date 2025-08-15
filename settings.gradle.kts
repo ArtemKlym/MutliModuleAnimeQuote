@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MutliModuleAnimeQuote"
 include(":app")
- 
+include(":domain")
