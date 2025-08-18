@@ -7,7 +7,7 @@ class GetRandomQuoteUseCase(
     private val quoteRepository: QuoteRepository
 ) {
 
-    suspend operator fun invoke(): Pair<Boolean, Quote> {
+    suspend operator fun invoke(): Pair<Boolean, Quote?> {
         return quoteRepository.loadRandomQuote()
     }
 }

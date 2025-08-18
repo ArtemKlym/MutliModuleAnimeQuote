@@ -23,3 +23,4 @@ rootProject.name = "MutliModuleAnimeQuote"
 include(":app")
 include(":domain")
 include(":data")
+include(":presentation")
