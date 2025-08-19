@@ -22,7 +22,9 @@ class MainViewModel(
         viewModelScope.launch {
             _isLoading.value = true
             val quote = getRandomQuoteUseCase.invoke().second
-            _quoteState.value = quote
+            if (quote != null) {
+                _quoteState.emit(quote)
+            }
             _isLoading.value = false
         }
     }

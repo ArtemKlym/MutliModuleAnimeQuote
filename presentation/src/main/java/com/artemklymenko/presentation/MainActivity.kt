@@ -33,14 +33,35 @@ class MainActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launch {
-            viewModel.quoteState.filterNotNull().collect { quote ->
-                binding.tvQuote.text = quote.data.content
-                binding.pbQuote.visibility = View.GONE
-            }
+            viewModel.quoteState
+                .filterNotNull()
+                .collect { quote ->
+                    binding.apply {
+                        tvQuote.text = quote.data.content
+                        tvCharacter.text = quote.data.character.name
+                        tvAnime.text = quote.data.anime.name
+                        pbQuote.visibility = View.GONE
+                    }
+                }
+        }
 
+        lifecycleScope.launch {
             viewModel.isLoading.collect { loading ->
-                binding.pbQuote.visibility = if (loading) View.VISIBLE else View.GONE
+                binding.pbQuote.visibility =  if (loading) {
+                    clearText()
+                    View.VISIBLE
+                } else {
+                    View.GONE
+                }
             }
+        }
+    }
+
+    private fun clearText() {
+        binding.apply {
+            tvQuote.text = ""
+            tvCharacter.text = ""
+            tvAnime.text = ""
         }
     }
 }
