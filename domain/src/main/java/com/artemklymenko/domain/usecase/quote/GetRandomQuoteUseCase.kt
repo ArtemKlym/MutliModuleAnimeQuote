@@ -2,8 +2,9 @@ package com.artemklymenko.domain.usecase.quote
 
 import com.artemklymenko.domain.models.Quote
 import com.artemklymenko.domain.repository.QuoteRepository
+import javax.inject.Inject
 
-class GetRandomQuoteUseCase(
+class GetRandomQuoteUseCase @Inject constructor(
     private val quoteRepository: QuoteRepository
 ) {
 
