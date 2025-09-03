@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.artemklymenko.presentation.MainActivity">
 
-    <TextView
+    <com.artemklymenko.presentation.AnimeTextView
         android:id="@+id/tvAnime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="8dp"/>
 
-    <TextView
+    <com.artemklymenko.presentation.CharacterTextView
         android:id="@+id/tvCharacter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="6dp"/>
 
-    <TextView
+    <com.artemklymenko.presentation.QuoteTextView
         android:id="@+id/tvQuote"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

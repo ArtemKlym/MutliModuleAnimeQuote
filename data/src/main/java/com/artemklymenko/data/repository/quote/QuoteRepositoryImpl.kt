@@ -1,19 +1,19 @@
 package com.artemklymenko.data.repository.quote
 
-import com.artemklymenko.domain.models.Quote
 import com.artemklymenko.domain.repository.QuoteRepository
+import com.artemklymenko.domain.repository.QuoteResult
 import javax.inject.Inject
 
 class QuoteRepositoryImpl @Inject constructor(
     private val service: AnimeQuoteService
 ) : QuoteRepository {
 
-    override suspend fun loadRandomQuote(): Pair<Boolean, Quote?> {
+    override suspend fun loadRandomQuote(): QuoteResult {
         return try {
             val quote = service.randomAnimeQuote()
-            Pair(true, quote)
+            QuoteResult.Success(quote)
         } catch (e: Exception) {
-            Pair(false, null)
+            QuoteResult.Error(e.message ?: "error")
         }
     }
 }

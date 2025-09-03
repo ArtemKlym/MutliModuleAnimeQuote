@@ -40,9 +40,7 @@ class MainActivity : AppCompatActivity() {
                 .filterNotNull()
                 .collect { quote ->
                     binding.apply {
-                        tvQuote.text = quote.data.content
-                        tvCharacter.text = quote.data.character.name
-                        tvAnime.text = quote.data.anime.name
+                        quote.showText(tvQuote)
                         pbQuote.visibility = View.GONE
                     }
                 }
